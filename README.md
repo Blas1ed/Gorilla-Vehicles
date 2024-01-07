@@ -77,5 +77,6 @@ Other Cars : https://assetstore.unity.com/packages/3d/vehicles/land/simple-cars-
 Holo Shader : https://www.void1gaming.com/free-hologram-shader-for-unity-urp
 
 # Info
+Gorilla Vehicles Discord: https://discord.gg/YNkaEKfQBw
 ![GitHub all releases](https://img.shields.io/github/downloads/Blas1ed/Gorilla-Vehicles/total?color=%2300FF00)
 
