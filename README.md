@@ -15,19 +15,19 @@ How to Set Up Custom Vehicle:<br />
 
 Begin by opening your project and obtaining your car model, preferably from Blender. Ensure that in Blender, you apply rotations to all the wheels before exporting them. To do this, select each wheel, go to Object > Apply > Rotations.<br />
 
-Import the model into your game and configure it by naming all the wheels correctly. Avoid placing wheel colliders directly on the wheels themselves, as it can lead to issues.<br />
+Import the model into the scene and configure it by naming all the wheels correctly. Avoid placing wheel colliders directly on the wheels themselves, as it can lead to issues. Place them on empty gameobjects.<br />
 
 Create your wheel colliders, which is a straightforward process. If you're unfamiliar with it, you can find tutorials online. Be sure to use the correct names to prevent errors.<br />
 
-Attach a Rigidbody component to the parent of the model and set its mass to approximately 350 for optimal results.<br />
+Attach a Rigidbody component to the parent of the model and set its mass to around 350 for optimal results.<br />
 
 Add a "Descriptor" component to the object, filling in the values (starter values work well).<br />
 
-Convert your car base to a mesh collider and check the "Convex" option but don't press the "Is Trigger" option. Make your model a prefab.<br />
+Add a mesh collider to the base of your car and check the "Convex" option but don't press the "Is Trigger" option. Make your model a prefab.<br />
 
 To export the asset bundle, right-click on the model, select "Export Asset Bundle," and wait for the process to complete. Your vehicle file can be found in Assets/Asset Bundles.<br />
 
-Don't forget to add a cube to the model, naming it "SelectPoint" and adjusting its size to match the object's dimensions. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
+Don't forget to add a cube to the model, naming it "SelectPoint" and adjusting its size to match the cars size. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
 
 Notes:<br />
 You can use the Template Model as a reference for the setup.<br />
