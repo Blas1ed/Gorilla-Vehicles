@@ -27,7 +27,7 @@ Add a mesh collider to the base of your car and check the "Convex" option but do
 
 Add a cube to the model, naming it "SelectPoint" and adjusting its size to match the cars size. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
 
-To export the object, click the model, select "Assets/Build Vehicle" and wait for the process to complete. Your vehicle file can be found in Assets/Asset Bundles.<br />
+To export the object in the hierarchy, select "Assets/Build Vehicle" and wait for the process to complete. Your vehicle file can be found in Assets/Asset Bundles.<br />
 
 Notes:<br />
 You can use the Template Model as a reference for the setup.<br />
