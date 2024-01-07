@@ -45,7 +45,7 @@ Delete Selected Vehicle = Right Controller B + Right Controller Index<br />
 Drive = Right Controller Idex<br />
 Reverse = Left Controller Index<br />
 Break = Right Controller B<br />
-Steer = Right StickD<br />
+Steer = Right Stick<br />
 
  MENU CONTROLS<br />
 Spawn Vehicles = Right Controller Index<br />
