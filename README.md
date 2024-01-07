@@ -39,6 +39,9 @@ Reverse = Left Controller Index<br />
 Break = Right Controller B<br />
 more controls will be added so make sure to keep checking in on the repo
 
+# Soon To Be Added
+Engine Sounds
+
 # Credits
 Fast Car: https://assetstore.unity.com/packages/3d/vehicles/land/arcade-free-racing-car-161085
 
