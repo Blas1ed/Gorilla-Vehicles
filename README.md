@@ -31,12 +31,12 @@ Fast Car (Red Muscle Car)
 and some others
 
 # Controls
-Open Pad = Left Controller X
-Select Vehicle = Right Controller A
-Delete Selected Vehicle = Right Controller B
-Drive = Right Controller Idex
-Reverse = Left Controller Index
-Break = Right Controller B
+Open Pad = Left Controller X<br />
+Select Vehicle = Right Controller A<br />
+Delete Selected Vehicle = Right Controller B<br />
+Drive = Right Controller Idex<br />
+Reverse = Left Controller Index<br />
+Break = Right Controller B<br />
 more controls will be added so make sure to keep checking in on the repo
 
 # Model Credits
