@@ -15,7 +15,7 @@ First your gonna wanna open the project up then get your car model (Prefereably 
 Also forgot to add you also need to add a Cube in the model and call it SelectPoint make it the size of the object and a little bigger this is the select box for selecting the car ingame after its spawned!
 
 Correct vehicle tire names
- Mesh Names:
+ Mesh Names: <br />
 Front left = FWheelLM
 Front right = FWheelRM
 Back left = BWheelLM
