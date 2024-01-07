@@ -22,6 +22,8 @@ Note 2: Names are important when i say to change the name make sure you change i
 
 Note 3 : Parents dont matter you can put the objects in different parents just keep the whole car parent at 0,0,0 it will find any object in any parent you just need the correct names
 
+Note 4 : MAKE SURE TO ALLIGN THE WHEEL COLLIDERS CORRECTLY AND THE RANGE AT THE CORRECT SIZE!
+
 Correct vehicle tire names <br />
  Mesh Names: <br />
 Front left = FWheelLM<br />
