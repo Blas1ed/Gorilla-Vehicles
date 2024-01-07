@@ -14,8 +14,6 @@ First your gonna wanna open the project up then get your car model (Prefereably 
 
 Also forgot to add you also need to add a Cube in the model and call it SelectPoint make it the size of the object and a little bigger this is the select box for selecting the car ingame after its spawned!
 
-and i also forgot to add you just need to add a "Selected Text" text mesh pro in your object dont worry about setting the text just add that and put it on top of the car model!
-
 Correct vehicle tire names <br />
  Mesh Names: <br />
 Front left = FWheelLM<br />
@@ -31,6 +29,12 @@ Back right = BWheelR
 # Base Cars
 Fast Car (Red Muscle Car)
 and some others
+
+# Controls
+Open Pad = Left Controller X
+Select Vehicle = Right Controller A
+Delete Selected Vehicle = Right Controller B
+more controls will be added so make sure to keep checking in on the repo
 
 # Model Credits
 Fast Car: https://assetstore.unity.com/packages/3d/vehicles/land/arcade-free-racing-car-161085
