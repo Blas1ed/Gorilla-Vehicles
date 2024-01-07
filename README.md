@@ -34,6 +34,9 @@ and some others
 Open Pad = Left Controller X
 Select Vehicle = Right Controller A
 Delete Selected Vehicle = Right Controller B
+Drive = Right Controller Idex
+Reverse = Left Controller Index
+Break = Right Controller B
 more controls will be added so make sure to keep checking in on the repo
 
 # Model Credits
