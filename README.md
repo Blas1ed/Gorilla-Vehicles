@@ -33,7 +33,7 @@ Notes:<br />
 You can use the Template Model as a reference for the setup.<br />
 Names are crucial; ensure you change them to the correct ones.<br />
 Parenting doesn't matter; you can organize objects in different parents. Just keep the entire car parented at the position (0,0,0). The system will find any object in any parent as long as the names are correct.<br />
-Properly align the wheel colliders and set their ranges to the correct size for optimal performance.<br />
+Properly align the wheel colliders and set their ranges to the correct size for optimal vehicle performance.<br />
 
 Correct vehicle tire names <br />
  Mesh Names: <br />
