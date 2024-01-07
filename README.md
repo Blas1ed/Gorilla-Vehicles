@@ -23,11 +23,11 @@ Attach a Rigidbody component to the parent of the model and set its mass to arou
 
 Add a "Descriptor" component to the object, filling in the values (starter values work well).<br />
 
-Add a mesh collider to the base of your car and check the "Convex" option but don't press the "Is Trigger" option. Make your model a prefab.<br />
+Add a mesh collider to the base of your car and check the "Convex" option but don't press the "Is Trigger" option.<br />
 
-To export the asset bundle, right-click on the model, select "Export Asset Bundle," and wait for the process to complete. Your vehicle file can be found in Assets/Asset Bundles.<br />
+Add a cube to the model, naming it "SelectPoint" and adjusting its size to match the cars size. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
 
-Don't forget to add a cube to the model, naming it "SelectPoint" and adjusting its size to match the cars size. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
+To export the object, click the model, select "Assets/Export Vehicle" and wait for the process to complete. Your vehicle file can be found in Assets/Asset Bundles.<br />
 
 Notes:<br />
 You can use the Template Model as a reference for the setup.<br />
