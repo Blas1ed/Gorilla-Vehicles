@@ -16,6 +16,10 @@ First your gonna wanna open the project up then get your car model (Prefereably 
 
 Also forgot to add you also need to add a Cube in the model and call it SelectPoint make it the size of the object and a little bigger this is the select box for selecting the car ingame after its spawned!
 
+Note: you can also use the Template Model as reference on how to setup
+
+Note 2: Names are important when i say to change the name make sure you change it to the correct name
+
 Correct vehicle tire names <br />
  Mesh Names: <br />
 Front left = FWheelLM<br />
