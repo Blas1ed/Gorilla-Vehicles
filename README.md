@@ -33,7 +33,7 @@ and some others
 # Controls
 Open Pad = Left Controller X<br />
 Select Vehicle = Right Controller A<br />
-Delete Selected Vehicle = Right Controller B<br />
+Delete Selected Vehicle = Right Controller B + Right Controller Index<br />
 Drive = Right Controller Idex<br />
 Reverse = Left Controller Index<br />
 Break = Right Controller B<br />
