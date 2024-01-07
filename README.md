@@ -28,8 +28,8 @@ Back left = BWheelL<br />
 Back right = BWheelR
 
 # Base Cars
-Fast Car (Red Muscle Car)
-and some others
+Fast Car (Red Muscle Car) <br />
+Police Car
 
 # Controls
 Open Pad = Left Controller X<br />
