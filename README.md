@@ -2,7 +2,7 @@
 Spawn in (Custom) vehicles made from other players into your game and drive them around!
 
 # Usage
-NOTE: YOU MUST BE IN A MODDED LOBBY FOR THE MOD TO BE ENABLED
+NOTE: YOU MUST BE IN A MODDED LOBBY FOR THE MOD TO BE ENABLED<br />
 First download the dll and put it in Gorilla Tag Folder/BepInEx/Plugins then you can start your game and successfully use the mod
 
 How to download other .vehicle files first join the discord then go to # Upload Vehicles then download the vehicle file then go to your dll location and find the folder called "Gorilla Vehicles" and put it in there boom now you have a new vehicle to play with!
