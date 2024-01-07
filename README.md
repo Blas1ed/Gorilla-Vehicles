@@ -9,7 +9,7 @@ First download the dll and put it in Gorilla Tag Folder/BepInEx/Plugins then you
 How to download other .vehicle files first join the <a href = "https://discord.gg/YNkaEKfQBw">discord<a> then go to # Upload Vehicles then download the vehicle file then go to your dll location and find the folder called "Custom Vehicles" and put it in there boom now you have a new vehicle to play with!
 
 # For Creators
-You can download the template project here:<br />
+You can download the template project here: https://drive.google.com/drive/u/0/folders/1lYe67IK2ogx3TNicxq7vDeAnWxoJWpCg<br />
 
 How to Set Up Custom Vehicle:<br />
 
