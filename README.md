@@ -40,6 +40,11 @@ Drive = Right Controller Idex<br />
 Reverse = Left Controller Index<br />
 Break = Right Controller B<br />
 Steer = Right StickD<br />
+
+ MENU CONTROLS<br />
+Spawn Vehicles = Right Controller Index<br />
+Rotate Left/Right = Right Controller A<br />
+Rotate Up/Down = Right Controller B<br />
 more controls will be added so make sure to keep checking in on the repo
 
 # Soon To Be Added
