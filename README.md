@@ -9,20 +9,31 @@ First download the dll and put it in Gorilla Tag Folder/BepInEx/Plugins then you
 How to download other .vehicle files first join the discord then go to # Upload Vehicles then download the vehicle file then go to your dll location and find the folder called "Gorilla Vehicles" and put it in there boom now you have a new vehicle to play with!
 
 # For Creators
-You can download the template project here:
+You can download the template project here:<br />
 
-How To:
-First your gonna wanna open the project up then get your car model (Prefereably from blender) (also make sure in blender before export click on your wheels and click Object/Apply/Rotations on all wheels) then import the model into your game setup the model by first getting all the wheels and setting them to the correct names and DO NOT PUT WHEEL COLLIDERS ON THE WHEELS THEMSELF or it will break then make your wheel colliders which is easy and if you dont know just look it up its very simple just make sure to set the correct names or you will get errors after all of that you want to add a rigidbody to the models parent and set the mass to around 350 for good results then your gonna wanna add a "Descriptor" component to the object also and fill in the values (Note: Starter values are good also) also make your car base a mesh collider and click the "Convix" button DONT PRESS IS TRIGGER then make your model a prefab and once done right click on the model then click "Export Asset Bundle" then wait for it to finish and DONE you can find you vehicle file in Assets/Asset Bundles!
+How to Set Up Custom Vehicle:<br />
 
-Also forgot to add you also need to add a Cube in the model and call it SelectPoint make it the size of the object and a little bigger this is the select box for selecting the car ingame after its spawned!
+Begin by opening your project and obtaining your car model, preferably from Blender. Ensure that in Blender, you apply rotations to all the wheels before exporting them. To do this, select each wheel, go to Object > Apply > Rotations.<br />
 
-Note: you can also use the Template Model as reference on how to setup
+Import the model into your game and configure it by naming all the wheels correctly. Avoid placing wheel colliders directly on the wheels themselves, as it can lead to issues.<br />
 
-Note 2: Names are important when i say to change the name make sure you change it to the correct name
+Create your wheel colliders, which is a straightforward process. If you're unfamiliar with it, you can find tutorials online. Be sure to use the correct names to prevent errors.<br />
 
-Note 3 : Parents dont matter you can put the objects in different parents just keep the whole car parent at 0,0,0 it will find any object in any parent you just need the correct names
+Attach a Rigidbody component to the parent of the model and set its mass to approximately 350 for optimal results.<br />
 
-Note 4 : MAKE SURE TO ALLIGN THE WHEEL COLLIDERS CORRECTLY AND THE RANGE AT THE CORRECT SIZE!
+Add a "Descriptor" component to the object, filling in the values (starter values work well).<br />
+
+Convert your car base to a mesh collider and check the "Convex" option but don't press the "Is Trigger" option. Make your model a prefab.<br />
+
+To export the asset bundle, right-click on the model, select "Export Asset Bundle," and wait for the process to complete. Your vehicle file can be found in Assets/Asset Bundles.<br />
+
+Don't forget to add a cube to the model, naming it "SelectPoint" and adjusting its size to match the object's dimensions. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
+
+Notes:<br />
+You can use the Template Model as a reference for the setup.<br />
+Names are crucial; ensure you change them to the correct ones.<br />
+Parenting doesn't matter; you can organize objects in different parents. Just keep the entire car parented at the position (0,0,0). The system will find any object in any parent as long as the names are correct.<br />
+Properly align the wheel colliders and set their ranges to the correct size for optimal performance.<br />
 
 Correct vehicle tire names <br />
  Mesh Names: <br />
