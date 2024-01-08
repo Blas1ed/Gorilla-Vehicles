@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using Gorilla_Vehicles.VehicleUTILS;
 using PlayFab.MultiplayerModels;
 using System;
@@ -93,8 +93,10 @@ namespace Gorilla_Vehicles
 
             for (int i = 0; i < MainUtils.SpawnedVehicles.Count; i++)
             {
-                MainUtils.SpawnedVehicles.Remove(MainUtils.SpawnedVehicles[i]);
-                Destroy(MainUtils.SpawnedVehicles[i]);
+                if (MainUtils.SpawnedVehicles[i] != null)
+                {
+                    Destroy(MainUtils.SpawnedVehicles[i]);
+                }
             }
             ActivePad.SetActive(false);
 
@@ -376,7 +378,7 @@ namespace Gorilla_Vehicles
                 {
                     if (CurrentSelectedObject != null && !SelectedVehicle)
                     {
-                        CurrentSelectedObject.GetComponent<VehicleScript>().SelectedVehicle = CurrentSelectedObject.GetComponent<VehicleScript>().SelectedVehicle == false ? true : false;
+                        CurrentSelectedObject.GetComponent<VehicleScript>().SelectedVehicle = true;
                         RightButtonLast = true;
                     }
                     else if (SelectedVehicle && CurrentSelectedObject != null)
@@ -389,7 +391,7 @@ namespace Gorilla_Vehicles
                             }
 
                         }
-                        CurrentSelectedObject.GetComponent<VehicleScript>().SelectedVehicle = CurrentSelectedObject.GetComponent<VehicleScript>().SelectedVehicle == false ? true : false;
+                        CurrentSelectedObject.GetComponent<VehicleScript>().SelectedVehicle = true;
                         RightButtonLast = true;
                     }
                 }
@@ -466,8 +468,11 @@ namespace Gorilla_Vehicles
 
             for (int i = 0; i < MainUtils.SpawnedVehicles.Count; i++)
             {
-                MainUtils.SpawnedVehicles.Remove(MainUtils.SpawnedVehicles[i]);
+                if (MainUtils.SpawnedVehicles[i] != null) 
+                { 
                 Destroy(MainUtils.SpawnedVehicles[i]);
+                }
+
             }
             ActivePad.SetActive(false);
 
