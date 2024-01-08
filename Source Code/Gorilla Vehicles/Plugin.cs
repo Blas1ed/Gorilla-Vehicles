@@ -21,6 +21,7 @@ namespace Gorilla_Vehicles
     // Also hi AHauntedArmy lol if you looking at this
     [ModdedGamemode]
     [BepInDependency("org.legoandmars.gorillatag.utilla", "1.5.0")]
+    [BepInDependency("com.kylethescientist.gorillatag.computerplusplus", "1.0.1")]
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {
