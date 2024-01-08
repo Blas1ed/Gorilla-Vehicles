@@ -65,6 +65,7 @@ Drive = Right Controller Idex<br />
 Reverse = Left Controller Index<br />
 Break = Right Controller B<br />
 Steer = Right Stick<br />
+Get Out Of Car = Right Stick CLICK
 
  MENU CONTROLS<br />
 Spawn Vehicles = Right Controller Index<br />
