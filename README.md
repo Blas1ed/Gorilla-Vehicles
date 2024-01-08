@@ -23,6 +23,8 @@ Attach a Rigidbody component to the parent of the model and set its mass to arou
 
 Add a "Descriptor" component to the object, filling in the values (starter values work well).<br />
 
+Add a empty gameobject called "DrivePoint" then put it down below the car like a good amount if you want it to be in the middle you have to put it below the car around the size of the car<br />
+
 Add a mesh collider to the base of your car and check the "Convex" option but don't press the "Is Trigger" option.<br />
 
 Add a cube to the model, naming it "SelectPoint" and adjusting its size to match the cars size. This cube serves as the selection box for choosing the car in-game once it's spawned.<br />
