@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -104,7 +104,7 @@ namespace Gorilla_Vehicles.VehicleUTILS
                 vs.maxSteeringAngle = int.Parse(Values[1]);
                 vs.VehicleSpeedMutiplyer = int.Parse(Values[2]);
                 vs.breakForce = int.Parse(Values[3]);
-
+                vs.DrivePoint = obj.FindInParent("DrivePoint");
                 
 
                 obj.transform.SetupCollidersLayer();
