@@ -52,7 +52,7 @@ Fast Car (Red Muscle Car) <br />
 Police Car
 
 # Mod Requirements
-Computer++ 1.6.11
+Computer++ 1.0.1
 Utilla 1.5.0
 
 # Controls
