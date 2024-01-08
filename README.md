@@ -51,6 +51,10 @@ Back right = BWheelR
 Fast Car (Red Muscle Car) <br />
 Police Car
 
+# Mod Requirements
+Computer++ 1.6.11
+Utilla 1.5.0
+
 # Controls
 Open Pad = Left Controller X<br />
 Select Vehicle = Right Controller A<br />
