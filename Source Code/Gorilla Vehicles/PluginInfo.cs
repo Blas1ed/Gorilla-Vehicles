@@ -7,6 +7,6 @@
     {
         public const string GUID = "com.blas1ed.gorillatag.gorillavehicles";
         public const string Name = "Gorilla_Vehicles";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.2";
     }
 }
