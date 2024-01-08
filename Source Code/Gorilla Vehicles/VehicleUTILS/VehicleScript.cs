@@ -1,10 +1,8 @@
 using GorillaNetworking;
 using HarmonyLib;
-using OculusSampleFramework;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.XR;
@@ -32,12 +30,19 @@ namespace Gorilla_Vehicles.VehicleUTILS
         private float steeringInput;
         private float currentbreakforce;
         bool rightStickClick;
+        private Quaternion LastRotation;
+        private LayerMask OriginalLayer;
+        private LayerMask EmptyLayer = new LayerMask();
+        public GameObject RightHand;
+        public GameObject LeftHand;
 
         public void Awake()
         {
             GorillaPlayer = GameObject.Find("GorillaPlayer");
 
             rb = gameObject.GetComponent<Rigidbody>();
+
+            OriginalLayer =LayerMask.GetMask(new string[] { "Gorilla Object", "Default", "Mirror", "NoMirror" });
 
             rb.centerOfMass = new Vector3(0, 0, 0);
         }
@@ -50,13 +55,15 @@ namespace Gorilla_Vehicles.VehicleUTILS
                 steeringInput = ControllerInputPoller.instance.rightControllerPrimary2DAxis.x;
                 currentbreakforce = ControllerInputPoller.instance.rightControllerSecondaryButton ? breakForce : 0f;
                 GorillaPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                GorillaPlayer.transform.position = DrivePoint.GetWorldPose().position;
+
+                GorillaPlayer.transform.position = DrivePoint.position;
 
                 bool IsSteamVR = Traverse.Create(PlayFabAuthenticator.instance).Field("platform").GetValue().ToString().ToLower() == "steam";
 
                 if (IsSteamVR) { rightStickClick = SteamVR_Actions.gorillaTag_RightJoystickClick.GetState(SteamVR_Input_Sources.RightHand); }
                 else { ControllerInputPoller.instance.rightControllerDevice.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out rightStickClick); }
 
+                GorillaPlayer.GetComponent<GorillaLocomotion.Player>().locomotionEnabledLayers = EmptyLayer;
                 if (rightStickClick)
                 {
                     SelectedVehicle = false;
@@ -66,15 +73,16 @@ namespace Gorilla_Vehicles.VehicleUTILS
             {
                 Plugin.Instance.SelectedVehicle = false;
                 motorInput = 0f;
+                GorillaPlayer.GetComponent<GorillaLocomotion.Player>().locomotionEnabledLayers = OriginalLayer;
             }
         }
 
         public void FixedUpdate()
-        {
-            ApplyMotorTorque();
-            ApplySteeringAngle();
-            UpdateWheels();
-            ApplyBreakForce();
+        {         
+                ApplyMotorTorque();     
+                ApplySteeringAngle();
+                UpdateWheels();
+                ApplyBreakForce();
         }
 
         void ApplyMotorTorque()
@@ -111,6 +119,5 @@ namespace Gorilla_Vehicles.VehicleUTILS
     ; wheelCollider.GetWorldPose(out pos, out rot);
             wheelTransform.rotation = rot;
         }
-
     }
 }
