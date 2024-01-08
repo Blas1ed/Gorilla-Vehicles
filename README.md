@@ -4,6 +4,7 @@ Spawn in (Custom) vehicles made from other players into your game and drive them
 # Usage
 NOTE: YOU MUST BE IN A MODDED LOBBY FOR THE MOD TO BE ENABLED<br />
 Note 2: To start driving spawned cars point your and at it and press Right Controller A and same to stop driving it (Also your turning disables when driving)<br />
+Note 3: While in the vehicle you should be centered IRL for your player to be in the correct position in the car
 First download the dll and put it in Gorilla Tag Folder/BepInEx/Plugins then you can start your game and successfully use the mod
 
 How to download other .vehicle files first join the <a href = "https://discord.gg/YNkaEKfQBw">discord<a> then go to # Upload Vehicles then download the vehicle file then go to your dll location and find the folder called "Custom Vehicles" and put it in there boom now you have a new vehicle to play with!
