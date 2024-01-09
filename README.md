@@ -12,6 +12,8 @@ How to download other .vehicle files first join the <a href = "https://discord.g
 # For Creators
 You can download the template project here: https://drive.google.com/drive/u/0/folders/1lYe67IK2ogx3TNicxq7vDeAnWxoJWpCg<br />
 
+NOTE: Make sure you import XR Plugin Management into the project and set Plugin Provider to OpenXR then go to OpenXR Tab below it after the Restart and then set Render Mode to Multi-Pass<br />
+
 How to Set Up Custom Vehicle:<br />
 
 Begin by opening your project and obtaining your car model, preferably from Blender. Ensure that in Blender, you apply rotations to all the wheels before exporting them. To do this, select each wheel, go to Object > Apply > Rotations.<br />
