@@ -35,6 +35,8 @@ namespace Gorilla_Vehicles.VehicleUTILS
         private LayerMask EmptyLayer = new LayerMask();
         public GameObject RightHand;
         public GameObject LeftHand;
+        public string Autor;
+        public string Version;
 
         public void Awake()
         {
