@@ -41,7 +41,7 @@ Properly align the wheel colliders and set their ranges to the correct size for 
 
 # Base Cars
 Fast Car (Red Muscle Car) <br />
-Police Car
+Police Car<br />
 Motorcycle
 
 # Mod Requirements
