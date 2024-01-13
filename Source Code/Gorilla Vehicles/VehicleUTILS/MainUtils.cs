@@ -1,13 +1,20 @@
+using BoingKit;
+using ComputerPlusPlus.Tools;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
+using static BoingKit.BoingBones;
+using static Gorilla_Vehicles.VehicleUTILS.Json;
 
 namespace Gorilla_Vehicles.VehicleUTILS
 {
@@ -24,27 +31,60 @@ namespace Gorilla_Vehicles.VehicleUTILS
         public static Material RedMat;
         public static Material GreenMat;
  
-        public static void SetupBundles()
+        public static async void SetupBundles()
         {
             List<AssetBundle> bundles = new List<AssetBundle>();
             string folder = Path.GetDirectoryName(typeof(Plugin).Assembly.Location);
-            IEnumerable<string> Files = Directory.GetFiles($"{folder}\\CustomVehicles");
-
-            foreach (string file in Files)
+            string path = $"{folder}\\CustomVehicles";
+            var directoryInfo = new DirectoryInfo(path);
+            Debug.Log("SetupBundles");
+            FileInfo[] fileInfos = directoryInfo.GetFiles("*.vehicle");
+            Debug.Log(fileInfos.Length);
+            foreach (var fileInfo in fileInfos)
             {
-                Debug.Log("File Found In Custom Objects: " + file);
-                string FilePath = $"{file}";
-                Debug.Log(FilePath);
+                string fileDirectory = Path.GetFileNameWithoutExtension(fileInfo.Name);
+                string filePath = Path.Combine(path, fileInfo.Name);
 
-                bundles.Add(AssetBundle.LoadFromFile(FilePath));
+                AssetBundle carResourceBundle = null;
+                CarJson shirtDataJSON = null;
+
+                Logging.Info($"Opening file '{Path.GetFileName(filePath)}'");
+                using var archive = ZipFile.OpenRead(filePath);
+                try
+                {
+                    var packageEntry = archive.Entries.FirstOrDefault(i => i.Name == "CarData.json");
+                    if (packageEntry == null) continue;
+
+                    Logging.Info(" > Reading entry");
+                    using var stream = new StreamReader(packageEntry.Open(), Encoding.UTF8);
+
+                    string packageReadContents = await stream.ReadToEndAsync();
+                    shirtDataJSON = Newtonsoft.Json.JsonConvert.DeserializeObject<CarJson>(packageReadContents);
+
+                    Logging.Info(" > Deserializing contents");
+                    var shirtResourceEntry = archive.Entries.FirstOrDefault(i => i.Name == fileInfo.Name.Replace(".vehicle", "") + "_Asset");
+                    if (shirtResourceEntry == null) continue;
+                LoadedObjectNames.Add(fileInfo.Name.Replace(".vehicle", ""));
+                    using var SeekableStream = new MemoryStream();
+                    await shirtResourceEntry.Open().CopyToAsync(SeekableStream);
+
+                    Logging.Info(" > Loading resource bundle");
+                    carResourceBundle = await LoadFromStream(SeekableStream);
+                    bundles.Add(carResourceBundle);
+                }
+                catch (Exception ex)
+                {
+                    Logging.Warning($"Failed to parse file '{Path.GetFileName(filePath)}' as a car for GorillaVehicles: {ex}");
+                    continue;
+                }
             }
 
-            foreach (AssetBundle bundle in bundles)
+                foreach (AssetBundle bundle in bundles)
             {
                 List<GameObject> LoadedAssets = new List<GameObject>();
                 LoadedAssets = bundle.LoadAllAssets<GameObject>().ToList<GameObject>();
                 LoadedObjects.Add(LoadedAssets[0]);
-                LoadedObjectNames.Add(LoadedAssets[0].gameObject.name);
+
                 GameObject Preset = GameObject.Instantiate(LoadedAssets[0]);
                 GameObject Preview = GameObject.Instantiate(LoadedAssets[0], Plugin.ObjectParent.transform);
                 LoadedPresets.Add(Preset);
@@ -53,24 +93,22 @@ namespace Gorilla_Vehicles.VehicleUTILS
                 Debug.Log("Bundle File Loaded: " + LoadedObjectNames[bundles.IndexOf(bundle)]);
                 LoadedPresets[bundles.IndexOf(bundle)].transform.DisableAllCollidersInParent();
                 LoadedPreviews[bundles.IndexOf(bundle)].transform.DisableAllCollidersInParent();
+                Debug.Log("DisabledColliders");
+                Debug.Log(LoadedPreviews[bundles.IndexOf(bundle)].transform.childCount);
                 LoadedPreviews[bundles.IndexOf(bundle)].GetComponent<Rigidbody>().isKinematic = true;
                 LoadedPresets[bundles.IndexOf(bundle)].GetComponent<Rigidbody>().isKinematic = true;
-                
+                Debug.Log("RigidStuff");
+
                 Preset.transform.SetMaterialInChildren(Plugin.HoloMat);
             }
 
-            LoadedObjects.SetupVehicleScripts();
+            LoadedObjects.SetupVehicleScripts($"{folder}\\CustomVehicles");
         }
 
-        public static void SetupVehicleScripts(this List<GameObject> Objects)
+        public static void SetupVehicleScripts(this List<GameObject> Objects, string path = "")
         {
             foreach (GameObject obj in Objects) 
             {
-                Text text = obj.GetComponent<Text>();
-                List<string> Values = text.text.Split("$").ToList<string>();
-                Debug.Log("Values Amount = " + Values.Count);
-
-                UnityEngine.Object.Destroy(text);
                 VehicleScript vs = obj.AddComponent<VehicleScript>();
                 List<WheelCollider> Wheels = new List<WheelCollider>()
           {
@@ -88,6 +126,49 @@ namespace Gorilla_Vehicles.VehicleUTILS
                 obj.FindInParent("BWheelRM").gameObject.GetComponent<Transform>()
             };
 
+                var directoryInfo = new DirectoryInfo(path);
+
+                FileInfo[] fileInfos = directoryInfo.GetFiles("*.vehicle");
+
+                foreach (var fileInfo in fileInfos)
+                {
+                    if (fileInfo.Name.Replace(".vehicle", "") == obj.name)
+                    {
+string fileDirectory = Path.GetFileNameWithoutExtension(fileInfo.Name);
+                    string filePath = Path.Combine(path, fileInfo.Name);
+                    CarJson carDataJSON = null;
+
+                    Logging.Info($"Opening file '{Path.GetFileName(filePath)}'");
+                    using var archive = ZipFile.OpenRead(filePath);
+                    try
+                    {
+                        var packageEntry = archive.Entries.FirstOrDefault(i => i.Name == "CarData.json");
+                        if (packageEntry == null) continue;
+
+                        Logging.Info(" > Reading entry");
+                        using var stream = new StreamReader(packageEntry.Open(), Encoding.UTF8);
+
+                        string packageReadContents = stream.ReadToEnd();
+                        carDataJSON = Newtonsoft.Json.JsonConvert.DeserializeObject<CarJson>(packageReadContents);
+  
+                vs.maxMotorTorque = carDataJSON.torque;
+                vs.maxSteeringAngle = carDataJSON.MaxSteeringAngle;
+                vs.VehicleSpeedMutiplyer = carDataJSON.SpeedMultiplyer;
+                vs.breakForce = carDataJSON.Breakforce;
+                        vs.Autor = carDataJSON.Author;
+                            vs.Version = carDataJSON.Version;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Logging.Warning($"Failed to parse file '{Path.GetFileName(filePath)}' as a car for GorillaVehicles: {ex}");
+                        continue;
+                    }
+                    }
+                    
+
+                }
+
                 if (obj.FindInParent("SelectPoint").gameObject != null)
                 {
               selectedPoints.Add(obj.FindInParent("SelectPoint").gameObject);
@@ -96,16 +177,11 @@ namespace Gorilla_Vehicles.VehicleUTILS
                 {
                     Plugin.FlagBrokenVehicle = true;
                 }
-             if (WheelMeshes.Count == 4 && Wheels.Count == 4 && vs != null && Values.Count != 0) 
+             if (WheelMeshes.Count == 4 && Wheels.Count == 4 && vs != null) 
                 { 
                 vs.Wheels = Wheels;
-                vs.WheelMeshes = WheelMeshes;
-                vs.maxMotorTorque = int.Parse(Values[0]);
-                vs.maxSteeringAngle = int.Parse(Values[1]);
-                vs.VehicleSpeedMutiplyer = int.Parse(Values[2]);
-                vs.breakForce = int.Parse(Values[3]);
                 vs.DrivePoint = obj.FindInParent("DrivePoint");
-                
+              vs.WheelMeshes = WheelMeshes;                
 
                 obj.transform.SetupCollidersLayer();
                 }
@@ -117,6 +193,18 @@ namespace Gorilla_Vehicles.VehicleUTILS
             }
 
 
+        }
+
+        private static async Task<AssetBundle> LoadFromStream(Stream str)
+        {
+            var taskCompletionSource = new TaskCompletionSource<AssetBundle>();
+            var request = AssetBundle.LoadFromStreamAsync(str);
+            request.completed += operation =>
+            {
+                var outRequest = operation as AssetBundleCreateRequest;
+                taskCompletionSource.SetResult(outRequest.assetBundle);
+            };
+            return await taskCompletionSource.Task;
         }
 
         public static void SetupCollidersLayer(this Transform transform)
@@ -197,6 +285,7 @@ namespace Gorilla_Vehicles.VehicleUTILS
 
             Plugin.ActivePad.SetActive(false);
         }
+
 
         public static void SetupButtons()
         {
