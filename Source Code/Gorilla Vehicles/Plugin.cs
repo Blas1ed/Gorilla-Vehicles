@@ -215,12 +215,15 @@ namespace Gorilla_Vehicles
                     if (list.Count != 0)
                     {
                         SelectedVehicleObject = list[0];
+
                     }
                     else
                     {
                         SelectedVehicleObject = null;
                     }
 
+                        ActivePad.FindInParent("Author").GetComponent<TextMeshPro>().text = "Author: " + MainUtils.LoadedObjects[CurrentPageIndexes[CurrentTab]].GetComponent<VehicleScript>().Autor;
+                        ActivePad.FindInParent("Version").GetComponent<TextMeshPro>().text = "V" + MainUtils.LoadedObjects[CurrentPageIndexes[CurrentTab]].GetComponent<VehicleScript>().Version;
                     if (SelectedVehicleObject != null)
                     {
                         GorillaPlayer.GetComponent<GorillaSnapTurn>().enabled = false;
