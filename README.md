@@ -79,4 +79,4 @@ Holo Shader : https://www.void1gaming.com/free-hologram-shader-for-unity-urp
 # Info
 Gorilla Vehicles Discord: https://discord.gg/YNkaEKfQBw<br />
 ![GitHub all releases](https://img.shields.io/github/downloads/Blas1ed/Gorilla-Vehicles/total?color=%2300FF00)<br />
-300 Downloads thnks ↑
+500 Downloads thnks ↑
